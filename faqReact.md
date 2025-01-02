@@ -70,7 +70,8 @@
 
 - Acheiving Sibling Communication with global state at React
   - Parent component
-  - When handlers are called in the child components, they trigger the state update functions in the parent component. The state is updated in the parent component even though the handlers are executed in the child components.
+    - When handlers are called in the child components, they trigger the state update functions in the parent component. The state is updated in the parent component even though the handlers are executed in the child components.
+  - React context API
 - useRef: try it not yet
 - useContext:
 - useReducer:
