@@ -58,7 +58,12 @@
   }
   ```
 
-- Side effects are operations that affect something outside the current scope of the function being executed (e.g fetch)
+- Side effects :
+
+  - React's main job is to take the component's data (state, props) and render the UI on the screen.
+  - Side Effects: Think of side effects as anything extra that React doesn’t manage by default! (like fetching data, logging, or manipulating the DOM). Need to code yourself and explicitly tell React when and how to handle them.
+  - Side effects trigger changes in state or props, and React responds to those changes by re-rendering.
+  - That's why side effects are kept separate and managed with tools like useEffect
 
 - Multiple return contains at least three states e.g. isLoading, isError, data
 
@@ -72,7 +77,7 @@
   - Parent component
     - When handlers are called in the child components, they trigger the state update functions in the parent component. The state is updated in the parent component even though the handlers are executed in the child components.
   - React context API
-- useRef: try it not yet
+- useRef:
 - useContext:
 - useReducer:
 - useCallback
