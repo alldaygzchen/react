@@ -26,6 +26,9 @@
 - index.html <- main.jsx(index.js) (root component) <- Component.jsx
 - React Component must be capital letter
 - Always return single component otherwise use <React.Fragment></React.Fragement> or <></>
+- ()=> xxx is equivalent to ()=>{return xxx}
+- jsx output are html.
+- if jsx return contains multiple line then paranthesis is needed
 - compare jsx vs html
   ```
   return (
