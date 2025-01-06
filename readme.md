@@ -46,7 +46,60 @@
   </div>
   ```
 - class to className
-- 26
+- inline vs external css
+  - inline has higher priority
+- <Book title='random title' number={22}/> curly brace for numbers and expressions
+- paramter(defined in function) vs arguments (calling the function)
+- children prop: the children prop in React can be considered an input to the parent component and passed to the child component just like any other prop. It allows you to pass nested elements or components from the parent to the child.
+- react curly braces reads list not objects
+- key is not a passed prop
+  ```
+  // it is actually a list
+  {books.map((book) => {
+    return (
+      <Book {...book} key={book.id}>
+        <button>click me</button>
+      </Book>
+    );
+  })}
+  ```
+- most common event: onClick, onSubmit, onChange
+- ```
+  <form onSubmit={handleFormSubmission}>
+    <button type="submit">Click me</button>
+    <button type="button" onclick={handleButtonClick}>Click me</button>
+  </form>
+
+  <form>
+    <button type="submit" onclick={handleFormSubmission}>Click me</button>
+    <button type="button" onclick={handleButtonClick}>Click me</button>
+  </form>
+  ```
+
+- components are independent, even in event it triggers independently
+- prop drilling includes function reference
+- nice example (beware of paranthesis)
+
+  ```
+  const Book = (props) => {
+  const { img, title, author, getBook, id } = props;
+  // console.log(props);
+  const getSingleBook = () => {
+    getBook(id);
+  };
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+
+      <button onClick={() => getBook(id)}>display title</button>
+      <h4>{author}</h4>
+    </article>
+  );
+  };
+  ```
+
+- 47
 
 # Backroads Application
 
