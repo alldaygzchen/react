@@ -12,3 +12,12 @@
 - 1rem: 16px
 - text-align: center;(letting text and button being the middle)
 - design method: small to big
+- position:static (default)
+  - relative and absolute: An element with position: absolute; is positioned relative to the nearest positioned ancestor
+  - fixed: stays in the same place even if the page is scrolled:
+  - relative: positioned relative to its normal position.
+  - sticky:relative and fixed
+  - top: Sets the top margin edge for a positioned box
+  - bottom: Sets the bottom margin edge for a positioned box
+  - left: Sets the left margin edge for a positioned box
+  - right:Sets the right margin edge for a positioned box
