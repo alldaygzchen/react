@@ -21,3 +21,19 @@
   - bottom: Sets the bottom margin edge for a positioned box
   - left: Sets the left margin edge for a positioned box
   - right:Sets the right margin edge for a positioned box
+- grid
+  - container
+    - display: grid, display: inline-grid;
+    - row-gap: 50px, column-gap: 50px;
+    - gap: 50px 100px;(row-gap,column-gap)
+    - grid-template-columns: auto auto auto auto; grid-template-rows: 80px 200px;
+    - justify-content: start, end, space-evenly; space-around; (x -axis)
+    - align-content: start, end (y-axis)
+    - place-content: center center; (align-content,justify-content)
+    - grid-template-areas: 'myArea myArea . . .';
+  - item
+    - grid-column-start: 1; grid-column-end: 3; grid-row-start: 1; grid-row-end: 3;
+    - grid-column: 1 / 5;(grid-column-start: 1; grid-column-end: 5;)
+    - grid-area: myArea;
+    - justify-self: right;center;
+    - align-self: start;center;
