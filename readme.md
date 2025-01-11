@@ -10,7 +10,7 @@
 
 - npx create-react-app@latest install-tutorial
 
-# React Fundamentals (ongoing)
+# React Fundamentals (done)
 
 - package.json: Flexible → It’s okay if someone uses slightly different versions.
 - package-lock.json: Consistent → Everyone gets the exact same setup.
@@ -23,7 +23,7 @@
     },
   ```
 - chrome extensions: react developer tools
-- index.html <- main.jsx(index.js) (root component) <- Component.jsx
+- index.html <- main.jsx(index.js) <- App.jsx(root component)<-Component.jsx
 - React Component must be capital letter
 - Always return single component otherwise use <React.Fragment></React.Fragement> or <></>
 - ()=> xxx is equivalent to ()=>{return xxx}
@@ -99,9 +99,42 @@
   };
   ```
 
-- 47
+# Backroads Application (done)
 
-# Backroads Application
+- App.jsx is the root component
+- The component.css will replace index.css
+- Font awesome (current example)
+  - <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  - <i class="fa fa-car" style="font-size:60px;color:red;"></i>
+  - style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.5rem' }}
+- Great thinking: Define data, iterate it and render by component using map. For future updating, we just need to update the component code (since html is hard-coding, no template exists)
+- the data above can be whatever you thought. e.g. link, title, subtitle, text, icon ...
+
+  ```
+  export const pageLinks = [
+  { id: 1, href: "#home", text: "home" },
+  { id: 2, href: "#about", text: "about" },
+  { id: 3, href: "#services", text: "services" },
+  { id: 4, href: "#tours", text: "tours" },
+  ];
+
+  ```
+
+- Directly or wrap it
+
+  ```
+  <PageLinks parentClass="nav-links" itemClass="nav-link" />
+
+  vs
+
+  <ul className="nav-icons">
+    {socialLinks.map((link) => {
+      return <SocialLink {...link} key={link.id} itemClass="nav-icon" />;
+    })}
+  </ul>
+  ```
+
+- the loaded data is not loaded in the root component, it actually loads in the component
 
 # VITE (done)
 
@@ -114,6 +147,10 @@
   - assets in the src
   - instead of index.js, need to use main.jsx
   ```
+
+# React Hooks and Advance topics
+
+-
 
 # Additional JS
 

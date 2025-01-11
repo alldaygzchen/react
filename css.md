@@ -31,9 +31,73 @@
     - align-content: start, end (y-axis)
     - place-content: center center; (align-content,justify-content)
     - grid-template-areas: 'myArea myArea . . .';
+    - grid-template-columns: 1fr 1fr (divides the space into equal parts) vs grid-template-columns: auto auto (The column will be as wide as the content inside it.)
   - item
     - grid-column-start: 1; grid-column-end: 3; grid-row-start: 1; grid-row-end: 3;
     - grid-column: 1 / 5;(grid-column-start: 1; grid-column-end: 5;)
     - grid-area: myArea;
     - justify-self: right;center;
     - align-self: start;center;
+- rwd
+
+  - add the new content after 992px
+    '''
+    .nav-center {
+    width: 90vw;
+    max-width: 1170px;
+    margin: 0 auto;
+    }
+
+    @media screen and (min-width: 992px) {
+    .nav-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    } }
+    '''
+
+  - --same-- (min-width) (max-width)--same--
+  - --same-- rwd-> <-rwd --same--
+
+- scroll
+
+  ```
+  <!-- link -->
+  <a href="#services"> services </a>
+  <!-- element -->
+  <section id="services"></section>
+
+  html {
+  scroll-behavior: smooth;
+  }
+  .section {
+  /* navbar height */
+  scroll-margin-top: 4rem;
+  }
+  ```
+
+- design
+
+  - the outer scope does not define margin
+  - the inner scope may be define
+    ```
+    .section-center {
+      width: 90vw;
+      margin: 0 auto;
+      max-width: 1170px;
+    }
+    ```
+  - if rwd, combine with above
+
+    ```
+    @media screen and (min-width: 992px) {
+      .about-center {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 2rem;
+      }
+    }
+    ```
+
+  - Better to use a grid, if the layout is two dimensional

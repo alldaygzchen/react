@@ -1,4 +1,4 @@
-function Component() {
+function App() {
   return (
     <>
       <h1>React templates</h1>
@@ -6,4 +6,4 @@ function Component() {
   );
 }
 
-export default Component;
+export default App;
