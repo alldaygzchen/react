@@ -62,7 +62,22 @@
 
   - React's main job is to take the component's data (state, props) and render the UI on the screen.
   - Side Effects: Think of side effects as anything extra that React doesn’t manage by default! (like fetching data, logging, or manipulating the DOM). Need to code yourself and explicitly tell React when and how to handle them.
-  - Side effects trigger changes in state or props, and React responds to those changes by re-rendering.
+  - Side effects may trigger changes in state or props, and React responds to those changes by re-rendering.
+
+    ```
+    useEffect(() => {
+      // Side effect that changes the state
+      fetchDataFromApi().then(data => {
+        setData(data);  // This changes the state
+      });
+    }, []);
+
+    useEffect(() => {
+      // Side effect triggered because count changed
+      console.log("Count has changed to", count);
+    }, [count]); // This effect runs when 'count' changes
+    ```
+
   - That's why side effects are kept separate and managed with tools like useEffect
 
 - Multiple return contains at least three states e.g. isLoading, isError, data

@@ -148,9 +148,143 @@
   - instead of index.js, need to use main.jsx
   ```
 
-# React Hooks and Advance topics
+# React Hooks and Advance topics (ongoing)
 
--
+- The two events (Lifecycle events and Manual Events) are possible to have side effect
+
+  - Side Effects
+
+    - Occur when you interact with the "outside world" (e.g., API calls, logging to the console, timers, or DOM manipulation).
+
+  - State Updates
+
+    - Not a side effect because they are part of React's internal rendering logic and do not interact with the outside world.
+
+  - Lifecycle events
+
+    - These are dependent on the component's lifecycle, such as when the component mounts, updates, or unmounts.
+    - Using useEffect is suitable for handling side effects triggered by these events.
+    - Example: Fetching data when a component mounts or recalculating something when state/props change
+
+  - Manual Events:
+
+    - These are triggered by user actions, such as clicking a button, submitting a form, or typing in an input field.
+    - These events are independent of the lifecycle and are tied to user interactions.
+    - Example: Fetching data when a button is clicked.
+
+    - Example: Button Clicks
+
+      - If clicking a button only updates state (e.g., setCount), it's not a side effect.
+      - If it also performs external actions (e.g., logging or fetching data), those are side effects.
+      - console.log() is just a side effect that logs information to the console, but it does not change anything in the component’s state or props
+
+  - When to use useEffect
+
+    - Click handlers are synchronous, meaning they execute immediately when triggered. This can cause issues if you rely on state changes that haven’t yet occurred.
+    - useEffect runs asynchronously after the render cycle, allowing you to safely perform side effects based on state or props changes after the DOM has been updated.
+
+    ```
+    // doesn't immediately show the updated state
+    const handleClick = () => {
+    setCount(count + 1);  // Updates the state
+    console.log(count);    // Logs to the console (side effect)
+    };
+
+    useEffect(() => {
+    console.log(count);  // Logs count when it changes
+    }, [count]);
+
+    ```
+
+- Summary
+
+  - Events can be categorized into manual (user-triggered) and lifecycle (component lifecycle-triggered).
+  - Both types of events can trigger side effects.
+  - if lifecycle side effects based on state or props changes after the DOM has been updated, then use useEffect
+
+- When does react rerender
+
+  - state change
+  - props change
+  - parent update
+
+- General rules of hooks
+
+  - Start with use
+  - Components must be uppercase
+  - Inside function body
+  - Do not call hooks conditionally
+  - set function does not update state immediately
+
+- - rerender due to state change
+  - preserve all the state before
+  - auto batching for optimization
+  - be aware of closure (use callbacks)
+  - if three seconds click five times, there are actually five setTimeout
+
+  ```
+    const handleClick = () => {
+    // setTimeout(() => {
+    //   console.log("clicked the button");
+    //   setValue(value + 1);
+    // }, 3000);
+    setTimeout(() => {
+      console.log("clicked the button");
+      setValue((currentState) => {
+        return currentState + 1;
+      });
+    }, 3000);
+    // setValue((currentState) => {
+    //   return currentState + 1;
+    // });
+  };
+  ```
+
+- UseEffect
+
+  - by default, runs on each render (intial render and re-render)
+  - [] => runs only on initial render
+  - contains two arguments: callback and dependency array
+  - callback cannot return promise (cannot return async)
+
+    - React doesn’t care about what happens inside the callback; it only cares about whether the callback returns:nothing or cleanup function
+    - React doesn't know how to handle Promise
+
+    ```
+    // wrong example
+    useEffect(async () => {
+      const response = await fetch("https://api.example.com/people");
+      const data = await response.json();
+      setPeople(data);
+    }, []);
+
+    // correct examples
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await fetch("https://api.example.com/people");
+          const data = await response.json();
+          setPeople(data);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+      fetchData(); // Call the async function inside the effect
+    }, []);
+
+    or
+
+    () => {
+      fetch("https://api.example.com/people")
+        .then((response) => response.json())
+        .then((data) => setPeople(data))
+        .catch((error) => console.error("Error fetching data:", error));
+    };
+    ```
+
+  - useEffect can be used multiple times but not suggested
+  - 100
 
 # Additional JS
 
@@ -166,4 +300,45 @@ const { a, b } = obj;
 
 console.log(a); // 1
 console.log(b); // 2
+```
+
+```
+function examplePromise() {
+  console.log('Promise')
+  return new Promise((resolve, reject) => {
+    // Simulate an asynchronous operation
+    setTimeout(() => {
+      const success = true; // Change to `false` to simulate an error
+      if (success) {
+        resolve("Operation successful!");
+      } else {
+        reject("Operation failed!");
+      }
+    }, 6000);
+  });
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+examplePromise()
+  .then((result) => console.log(result)) // Logs: Operation successful!
+  .catch((error) => console.error(error)); // Logs: Operation failed! (if rejected)
+
+console.log("This logs before the promise resolves!");
+
+/////////////////////////////////////////////////////////////////////////
+
+async function exampleAsync() {
+  try {
+    console.log("Starting async function...");
+    const result = await examplePromise(); // Waits for the promise to resolve
+    console.log(result); // Logs: Operation successful!
+  } catch (error) {
+    console.error(error); // Logs: Operation failed! (if rejected)
+  }
+}
+
+// Call the async function
+exampleAsync();
+console.log("This logs before the promise resolves!");
 ```
