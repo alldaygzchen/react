@@ -284,7 +284,52 @@
     ```
 
   - useEffect can be used multiple times but not suggested
-  - 100
+
+- Conditional Rendering and Data Fetching
+- Do not add react hooks in conditional statment also has the below example meaning
+
+  ```
+  const Example = () => {
+  const [condition, setCondition] = useState(true);
+  // if (condition) {
+  //   // won't work
+  //   const [state, setState] = useState(false);
+  // }
+
+  if (condition) {
+    return <h2>Hello There</h2>;
+  }
+  // this will also fail
+  //   useEffect(() => {
+  //     console.log("hello there");
+  //   }, []);
+  return <h2>example</h2>;
+  };
+  ```
+
+- why use short circuit:
+  - since conditional statement cannot be used in jsx
+- examples
+
+```
+  // tag content to display
+  <h2>{text || "default value"}</h2>
+
+  // content to display
+  {text && (
+    <div>
+      <h2> whatever return</h2>
+      <h2>{name}</h2>
+    </div>
+  )}
+
+  // content to display
+  // examples (if user exist show the component otherwise not displaying)
+  {user && <SomeComponent name={user.name} />}
+
+```
+
+- 113
 
 # Additional JS
 
@@ -341,4 +386,21 @@ async function exampleAsync() {
 // Call the async function
 exampleAsync();
 console.log("This logs before the promise resolves!");
+
+/////////////////////////////////////////////////////////////////////////
+// Optional Chaining
+ object?.property?.subProperty
+
+ is equivalent to below statement
+
+ if (object && object.property && object.property.subProperty) {
+  // Do something
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+// falsy values in js
+0, "", null, undefined, NaN
+// short Circuit Evaluation
+&&, ||
 ```
