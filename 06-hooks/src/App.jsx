@@ -13,7 +13,12 @@
 // import ShortCircuitOverview from "./tutorial/03-conditional-rendering/04-short-circuit-overview";
 // import ShortCircuitExamples from "./tutorial/03-conditional-rendering/05-short-circuit-examples";
 // import ToggleChallenge from "./tutorial/03-conditional-rendering/06-toggle-challenge";
-import UserChallenge from "./tutorial/03-conditional-rendering/07-user-challenge";
+// import UserChallenge from "./tutorial/03-conditional-rendering/07-user-challenge";
+// import CleanupFunction from "./tutorial/02-useEffect/05-cleanup-function";
+// import CleanupFunctionv2 from "./tutorial/02-useEffect/05-cleanup-functionv2";
+// import Navbar from "./tutorial/04-project-structure/Navbar";
+// import { About, Home } from "./tutorial/04-project-structure/Pages";
+import Example from "./tutorial/04-project-structure/Example";
 
 function App() {
   return (
@@ -33,7 +38,13 @@ function App() {
       {/* <ShortCircuitOverview /> */}
       {/* <ShortCircuitExamples /> */}
       {/* <ToggleChallenge /> */}
-      <UserChallenge />
+      {/* <UserChallenge /> */}
+      {/* <CleanupFunction /> */}
+      {/* <CleanupFunctionv2 /> */}
+      {/* <Navbar /> */}
+      {/* <Home /> */}
+      {/* <About /> */}
+      <Example />
     </div>
   );
 }
