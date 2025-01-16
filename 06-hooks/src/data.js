@@ -6,7 +6,7 @@ export const data = [
 ];
 
 export const people = [
-  { id: 1, name: "bob", nickName: "Stud Muffin" },
+  { id: 1, name: "bob", nickName: "Stud Muffin", age: 22 },
   { id: 2, name: "peter" },
   {
     id: 3,

@@ -18,7 +18,9 @@
 // import CleanupFunctionv2 from "./tutorial/02-useEffect/05-cleanup-functionv2";
 // import Navbar from "./tutorial/04-project-structure/Navbar";
 // import { About, Home } from "./tutorial/04-project-structure/Pages";
-import Example from "./tutorial/04-project-structure/Example";
+// import Example from "./tutorial/04-project-structure/Example";
+// import List from "./tutorial/05-leverage-javascript/List";
+import ControlledInputs from "./tutorial/06-forms/01-controlled-inputs";
 
 function App() {
   return (
@@ -44,7 +46,9 @@ function App() {
       {/* <Navbar /> */}
       {/* <Home /> */}
       {/* <About /> */}
-      <Example />
+      {/* <Example /> */}
+      {/* <List /> */}
+      <ControlledInputs />
     </div>
   );
 }

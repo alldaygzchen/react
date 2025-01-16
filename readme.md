@@ -329,7 +329,28 @@
 
 ```
 
-- 113
+- useEffect
+
+  - the useEffect initial render will always work when mounting the component
+  - cleanup function runs after the render but before the useEffect
+  - useEffect is used in data fetch a lot , some alternatives such as react query can help us
+
+  ```
+  {toggle && <RandomComponent />}
+
+  const RandomComponent = () => {
+  useEffect(() => {
+    console.log("hmm, this is interesting");
+  }, []);
+  ```
+
+- project structure
+
+  - sol1 (default export): setting up every component as folder and create a index.jsx file (aloso the css is scoped)
+  - sol2 (name export): create a index.jsx file
+  - sol3: create a another component to export
+
+- form example (01-controlled inputs)
 
 # Additional JS
 
@@ -401,6 +422,6 @@ console.log("This logs before the promise resolves!");
 
 // falsy values in js
 0, "", null, undefined, NaN
-// short Circuit Evaluation
+// Short Circuit Evaluation
 &&, ||
 ```
