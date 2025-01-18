@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
 const ControlledInputs = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  console.log('render');
 
   const handleName = (e) => {
     // for now we won't use it
     // const name = e.target.name;
     // const value = e.target.value;
-    console.log("name is changing");
+    console.log('name is changing');
     setName(e.target.value);
   };
 
@@ -15,7 +16,7 @@ const ControlledInputs = () => {
     // for now we won't use it
     // const name = e.target.name;
     // const value = e.target.value;
-    console.log("email is changing");
+    console.log('email is changing');
     setEmail(e.target.value);
   };
 

@@ -331,7 +331,7 @@
 
 - useEffect
 
-  - the useEffect initial render will always work when mounting the component
+  - the useEffect initial render will always work when mounting the component even with child component
   - cleanup function runs after the render but before the useEffect
   - useEffect is used in data fetch a lot , some alternatives such as react query can help us
 
@@ -350,7 +350,40 @@
   - sol2 (name export): create a index.jsx file
   - sol3: create a another component to export
 
-- form example (01-controlled inputs)
+- form example
+
+  - multiple inputs: use object for multiple inputs in useState
+  - radio: single answer, checkbox:multiple selection
+  - e.target.checked
+
+  ```
+    <select
+    name="framework"
+    id="framework"
+    value={framework}
+    onChange={handleFramework}
+  >
+    {frameworks.map((framework) => {
+      return <option key={framework}>{framework}</option>;
+    })}
+  </select>
+  ```
+
+  - e.target vs e.currentTarget
+  - uncontrolled input (without using useState)
+
+- useRef
+
+  - updating useRef does not trigger re-render
+  - preserve the value between renders which is same as useState
+  - use case: skip initial render functionalities
+
+- custom hook
+
+  - it does not need to return set function e.g. useFetch.js
+
+- context api
+  - 142
 
 # Additional JS
 

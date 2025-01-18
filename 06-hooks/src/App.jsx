@@ -20,7 +20,16 @@
 // import { About, Home } from "./tutorial/04-project-structure/Pages";
 // import Example from "./tutorial/04-project-structure/Example";
 // import List from "./tutorial/05-leverage-javascript/List";
-import ControlledInputs from "./tutorial/06-forms/01-controlled-inputs";
+// import ControlledInputs from './tutorial/06-forms/01-controlled-inputs';
+// import UserChallenge from './tutorial/06-forms/02-user-challenge';
+// import MultipleInputs from './tutorial/06-forms/03-multiple-inputs';
+// import OtherInputs from './tutorial/06-forms/04-other-inputs';
+// import UncontrolledInputs from './tutorial/06-forms/05-form-data';
+// import UseRefBasics from './tutorial/07-useRef/01-useRef-basics';
+// import ToggleExample from './tutorial/08-custom-hooks/01-toogle';
+// import FetchData from './tutorial/08-custom-hooks/02-fetch-data';
+// import Navbar from './tutorial/09-context-api/prop-drilling/Navbar';
+import Navbar from './tutorial/09-context-api/context/Navbar';
 
 function App() {
   return (
@@ -48,7 +57,16 @@ function App() {
       {/* <About /> */}
       {/* <Example /> */}
       {/* <List /> */}
-      <ControlledInputs />
+      {/* <ControlledInputs /> */}
+      {/* <UserChallenge /> */}
+      {/* <MultipleInputs /> */}
+      {/* <OtherInputs /> */}
+      {/* <UncontrolledInputs /> */}
+      {/* <UseRefBasics /> */}
+      {/* <ToggleExample /> */}
+      {/* <FetchData /> */}
+      {/* <Navbar /> */}
+      <Navbar />
     </div>
   );
 }
