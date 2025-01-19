@@ -370,7 +370,7 @@
   ```
 
   - e.target vs e.currentTarget
-  - uncontrolled input (without using useState)
+  - uncontrolled input using form api (without using useState)
 
 - useRef
 
@@ -383,7 +383,45 @@
   - it does not need to return set function e.g. useFetch.js
 
 - context api
-  - 142
+  - step1: createContext: outputs provider and consumer(not used since we have useContext hook)
+  - example
+  ```
+  export const NavbarContext = createContext();
+  <NavbarContext.Provider value={{ user, logout }}></NavbarContext.Provider>
+  ```
+  - step2: create hooks
+  ```
+  export const useAppContext = (context) => useContext(context);
+  ```
+  - step3: use the created hooks in children component
+  ```
+  const { user, logout } = useAppContext(NavbarContext);
+  ```
+- global context api
+  - step1: create a AppContext Wrapper component with createContext, value and props.children
+  - step2: main.jsx
+    ```
+    <React.StrictMode>
+      <AppContext>
+        <App/>
+      </AppContext>
+    </React.StrictMode>
+    ```
+  - step3: create hooks
+  ```
+  export const useAppContext = (context) => useContext(context);
+  ```
+  - step3: use the created hooks in children component
+  ```
+  const {name} = useAppContext(GlobalContext);
+  ```
+- useReducer (lite version of redux)
+  ```
+  UseReducer fits best when:
+  You have related state that can be grouped together for simplicity.
+  Or you have dependent state that shares the same logic for updates.
+  ```
+  - 148
 
 # Additional JS
 

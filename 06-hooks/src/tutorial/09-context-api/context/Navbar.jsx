@@ -1,5 +1,4 @@
 import { createContext } from 'react';
-import { useContext } from 'react';
 import { useState } from 'react';
 import NavLinks from './NavLinks';
 
@@ -9,8 +8,7 @@ export const NavbarContext = createContext();
 // Consumer - replaced by useContext() hook
 
 // custom hook
-
-export const useAppContext = () => useContext(NavbarContext);
+// export const useAppContext = () => useContext(NavbarContext);
 
 const Navbar = () => {
   const [user, setUser] = useState({ name: 'bob' });
