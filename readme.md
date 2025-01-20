@@ -421,7 +421,13 @@
   You have related state that can be grouped together for simplicity.
   Or you have dependent state that shares the same logic for updates.
   ```
-  - 148
+  - we use reducer function to manipulate the state
+  - compare useReducer vs useState
+  ```
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  const [state, setState] = useState(defaultState);
+  ```
+  - reducer function returns state and action parameter is the object of disptach content
 
 # Additional JS
 

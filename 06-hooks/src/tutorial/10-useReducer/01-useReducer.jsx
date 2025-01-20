@@ -1,7 +1,7 @@
-import { useState, useReducer } from 'react';
-import { data } from '../../data';
-import { CLEAR_LIST, RESET_LIST, REMOVE_ITEM } from './actions';
-import reducer from './reducer';
+import { useReducer } from "react";
+import { data } from "../../data";
+import { CLEAR_LIST, RESET_LIST, REMOVE_ITEM } from "./actions";
+import reducer from "./reducer";
 
 const defaultState = {
   people: data,
@@ -22,7 +22,7 @@ const ReducerBasics = () => {
     dispatch({ type: RESET_LIST });
   };
   console.log(state);
-  console.log('render');
+  console.log("render");
   return (
     <div>
       {state.people.map((person) => {
@@ -37,7 +37,7 @@ const ReducerBasics = () => {
       {state.people.length < 1 ? (
         <button
           className="btn"
-          style={{ marginTop: '2rem' }}
+          style={{ marginTop: "2rem" }}
           onClick={resetList}
         >
           reset
@@ -45,7 +45,7 @@ const ReducerBasics = () => {
       ) : (
         <button
           className="btn"
-          style={{ marginTop: '2rem' }}
+          style={{ marginTop: "2rem" }}
           onClick={clearList}
         >
           clear
