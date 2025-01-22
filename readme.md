@@ -416,18 +416,61 @@
   const {name} = useAppContext(GlobalContext);
   ```
 - useReducer (lite version of redux)
+
   ```
   UseReducer fits best when:
   You have related state that can be grouped together for simplicity.
   Or you have dependent state that shares the same logic for updates.
   ```
+
   - we use reducer function to manipulate the state
   - compare useReducer vs useState
+
   ```
   const [state, dispatch] = useReducer(reducer, defaultState);
   const [state, setState] = useState(defaultState);
   ```
+
   - reducer function returns state and action parameter is the object of disptach content
+
+- performance
+  - useeffect children component will always be re-rendering after initial render (06-hooks\src\tutorial\11-performance\01-lower-state\Person.jsx)
+  - lower the state to prevent trigger re-rendering
+  - memo(Component), the component will not re-render if the prop don't change
+  - usecallback
+    - A hook that allows you to memoize a function
+    - be aware of closure
+    ```
+      const removePerson = useCallback(
+    (id) => {
+      console.log("removePerson");
+      console.log(people);
+      const newPeople = people.filter((person) => person.id !== id);
+      setPeople(newPeople);
+    },
+    [people]
+    );
+    ```
+  - useMemo
+    - Memoizes a value
+    - Avoid recalculating values
+  - useCallback
+    - Memoizes a function
+    - The function itself
+  - useTransition
+    - This part of the update can wait, so prioritize other things first and the transition will work in the background.
+  - react suspense
+    - Lazy loading in React means loading components only when they are needed instead of all at once. This helps your app load faster and improves performance.
+    - With lazy loading, React loads only the components the user is viewing, saving time and resources.
+    ```
+    import { useState, useTransition, lazy, Suspense } from "react";
+    <Suspense fallback={<h4>Loading...</h4>}>
+        <button onClick={() => setShow(!show)} className="btn">
+          toggle
+        </button>
+        {show && <SlowComponent />}
+    </Suspense>
+    ```
 
 # Additional JS
 
