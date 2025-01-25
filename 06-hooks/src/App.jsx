@@ -31,11 +31,10 @@
 // import Navbar from './tutorial/09-context-api/prop-drilling/Navbar';
 // import Navbar from "./tutorial/09-context-api/context/Navbar";
 // import ReducerBasics from "./tutorial/10-useReducer/01-useReducer";
-// import LowerState from "./tutorial/11-performance/01-lower-state";
+import LowerState from "./tutorial/11-performance/01-lower-state";
 // import LowerStateChallenge from "./tutorial/11-performance/02-lower-state-challenge";
 // import LowerState from "./tutorial/11-performance/03-hooks";
-
-import LatestReact from "./tutorial/11-performance/04-react-18";
+// import LatestReact from "./tutorial/11-performance/04-react-18";
 
 function App() {
   return (
@@ -74,10 +73,10 @@ function App() {
       {/* <Navbar /> */}
       {/* <Navbar /> */}
       {/* <ReducerBasics /> */}
-      {/* <LowerState /> */}
+      <LowerState />
       {/* <LowerStateChallenge /> */}
       {/* <LowerState /> */}
-      <LatestReact />
+      {/* <LatestReact /> */}
     </div>
   );
 }
