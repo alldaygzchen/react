@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const CleanupFunctionv2 = () => {
   const [toggle, setToggle] = useState(false);
-  console.log("CleanupFunction render");
+  console.log('CleanupFunction render');
   useEffect(() => {
-    console.log("CleanupFunction useeffect");
+    console.log('CleanupFunction useeffect');
   }, []);
   return (
     <div>
@@ -17,12 +17,12 @@ const CleanupFunctionv2 = () => {
 };
 const RandomComponent = () => {
   useEffect(() => {
-    console.log("RandomComponent useEffect");
+    console.log('RandomComponent useEffect');
     const someFunc = () => {
-      console.log("some func");
+      console.log('some func');
     };
-    window.addEventListener("scroll", someFunc);
-    return () => window.removeEventListener("scroll", someFunc);
+    window.addEventListener('scroll', someFunc);
+    // return () => window.removeEventListener('scroll', someFunc);
   }, []);
 
   return <h1>hello there</h1>;

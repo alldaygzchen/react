@@ -148,59 +148,61 @@
   - instead of index.js, need to use main.jsx
   ```
 
-# React Hooks and Advance topics (ongoing)
+# React Hooks and Advance topics (done)
 
-- The two events (Lifecycle events and Manual Events) are possible to have side effect
+## Side Effects and State Updates
 
-  - Side Effects
+### Side Effects
 
-    - Occur when you interact with the "outside world" (e.g., API calls, logging to the console, timers, or DOM manipulation).
+- Occur when you interact with the "outside world" (e.g., API calls, logging to the console, timers, or DOM manipulation).
 
-  - State Updates
+### State Updates
 
-    - Not a side effect because they are part of React's internal rendering logic and do not interact with the outside world.
+- Not considered side effects because they are part of React's internal rendering logic and do not interact with the outside world.
 
-  - Lifecycle events
+## Types of Events
 
-    - These are dependent on the component's lifecycle, such as when the component mounts, updates, or unmounts.
-    - Using useEffect is suitable for handling side effects triggered by these events.
-    - Example: Fetching data when a component mounts or recalculating something when state/props change
+### Lifecycle Events
 
-  - Manual Events:
+- Dependent on the component's lifecycle, such as when the component mounts, updates, or unmounts.
+- Suitable for handling side effects triggered by these events using `useEffect`.
+- **Example**: Fetching data when a component mounts or recalculating something when state/props change.
 
-    - These are triggered by user actions, such as clicking a button, submitting a form, or typing in an input field.
-    - These events are independent of the lifecycle and are tied to user interactions.
-    - Example: Fetching data when a button is clicked.
+### Manual Events
 
-    - Example: Button Clicks
+- Triggered by user actions, such as clicking a button, submitting a form, or typing in an input field.
+- Independent of the lifecycle and tied to user interactions.
+- **Example**: Fetching data when a button is clicked.
 
-      - If clicking a button only updates state (e.g., setCount), it's not a side effect.
-      - If it also performs external actions (e.g., logging or fetching data), those are side effects.
-      - console.log() is just a side effect that logs information to the console, but it does not change anything in the component’s state or props
+#### Example: Button Clicks
 
-  - When to use useEffect
+- If clicking a button only updates state (e.g., `setCount`), it's not a side effect.
+- If it also performs external actions (e.g., logging or fetching data), those are side effects.
+- `console.log()` is a side effect that logs information to the console but does not change anything in the component’s state or props.
 
-    - Click handlers are synchronous, meaning they execute immediately when triggered. This can cause issues if you rely on state changes that haven’t yet occurred.
-    - useEffect runs asynchronously after the render cycle, allowing you to safely perform side effects based on state or props changes after the DOM has been updated.
+## When to Use `useEffect`
 
-    ```
-    // doesn't immediately show the updated state
-    const handleClick = () => {
-    setCount(count + 1);  // Updates the state
-    console.log(count);    // Logs to the console (side effect)
-    };
+- Click handlers are synchronous, meaning they execute immediately when triggered. This can cause issues if you rely on state changes that haven’t yet occurred.
+- `useEffect` runs asynchronously after the render cycle, allowing you to safely perform side effects based on state or props changes after the DOM has been updated.
 
-    useEffect(() => {
-    console.log(count);  // Logs count when it changes
-    }, [count]);
+  ```
+  // doesn't immediately show the updated state
+  const handleClick = () => {
+  setCount(count + 1);  // Updates the state
+  console.log(count);    // Logs to the console (side effect)
+  };
 
-    ```
+  useEffect(() => {
+  console.log(count);  // Logs count when it changes
+  }, [count]);
+
+  ```
 
 - Summary
 
   - Events can be categorized into manual (user-triggered) and lifecycle (component lifecycle-triggered).
   - Both types of events can trigger side effects.
-  - if lifecycle side effects based on state or props changes after the DOM has been updated, then use useEffect
+  - Use useEffect for lifecycle side effects based on state or props changes after the DOM has been updated.
 
 - When does react rerender
 
@@ -299,7 +301,7 @@
   if (condition) {
     return <h2>Hello There</h2>;
   }
-  // this will also fail
+  // it is not recommend since it runs conditionally
   //   useEffect(() => {
   //     console.log("hello there");
   //   }, []);
@@ -331,7 +333,7 @@
 
 - useEffect
 
-  - the useEffect initial render will always work when mounting the component even with child component
+  - the useEffect initial render will always work when mounting the component e.g. toogle child component
   - cleanup function runs after the render but before the useEffect
   - useEffect is used in data fetch a lot , some alternatives such as react query can help us
 
@@ -346,7 +348,7 @@
 
 - project structure
 
-  - sol1 (default export): setting up every component as folder and create a index.jsx file (aloso the css is scoped)
+  - sol1 (default export): setting up every component as folder and create a index.jsx file (not scoped, the last component will override)
   - sol2 (name export): create a index.jsx file
   - sol3: create a another component to export
 
@@ -434,7 +436,7 @@
   - reducer function returns state and action parameter is the object of disptach content
 
 - performance
-  - useeffect children component will always be re-rendering after initial render (06-hooks\src\tutorial\11-performance\01-lower-state\Person.jsx)
+  - children component will always be re-rendering after initial render (06-hooks\src\tutorial\11-performance\01-lower-state\Person.jsx)
   - lower the state to prevent trigger re-rendering
   - memo(Component), the component will not re-render if the prop don't change
   - usecallback
@@ -471,6 +473,56 @@
         {show && <SlowComponent />}
     </Suspense>
     ```
+
+# Additional React
+
+```
+import React, { useState } from 'react';
+
+const ManualEventWithFetch = () => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('https://api.example.com/data');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleClick = () => {
+    fetchData();
+  };
+
+  return (
+    <div>
+      <h1>Fetch Data on Button Click</h1>
+      <button onClick={handleClick}>Fetch Data</button>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {data && (
+        <div>
+          <h2>Data:</h2>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ManualEventWithFetch;
+```
 
 # Additional JS
 

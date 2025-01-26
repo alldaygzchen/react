@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-const url = "https://api.github.com/users";
+import { useState, useEffect } from 'react';
+const url = 'https://api.github.com/users';
 
 const FetchData = () => {
   const [users, setUsers] = useState([]);
-  console.log("hello"); // 2 times
+  console.log('render'); // 2 times
 
   useEffect(() => {
     const fetchData = async () => {

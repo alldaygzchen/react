@@ -6,22 +6,26 @@ const ControlledInputs = () => {
 
   const handleName = (e) => {
     // for now we won't use it
-    // const name = e.target.name;
+    const event_name = e.target.value;
     // const value = e.target.value;
-    console.log('name is changing');
+    console.log('name is changing', event_name);
     setName(e.target.value);
   };
 
   const handleEmail = (e) => {
     // for now we won't use it
     // const name = e.target.name;
-    // const value = e.target.value;
-    console.log('email is changing');
+    const event_email = e.target.value;
+    console.log('email is changing', event_email);
     setEmail(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const event_name = e.target.name.value;
+    const event_email = e.target.email.value;
+    console.log(event_name, event_email);
+
     // do something
     console.log(name, email);
   };
@@ -39,6 +43,7 @@ const ControlledInputs = () => {
           //   onChange={(e) => setName(e.target.value)}
           onChange={handleName}
           id="name"
+          name="name"
         />
       </div>
       <div className="form-row">
@@ -49,6 +54,7 @@ const ControlledInputs = () => {
           type="email"
           className="form-input"
           id="email"
+          name="email"
           value={email}
           //   onChange={(e) => setEmail(e.target.value)}
           onChange={handleEmail}

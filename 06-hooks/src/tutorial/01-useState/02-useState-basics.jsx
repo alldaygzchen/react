@@ -1,27 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const UseStateBasics = () => {
   const [count, setCount] = useState(0);
-  const [alert, setAlert] = useState("Nothing");
-
-  console.log("the outer count", count); // new value
-  console.log("the outer alert", alert); // new value
+  const [alert, setAlert] = useState('Nothing');
+  console.log('render');
+  console.log('the outer count', count); // new value
+  console.log('the outer alert', alert); // new value
 
   const handleClick = () => {
     // console.log(count)
     setCount(count + 1);
-    console.log("the button count", count); //old value
-    console.log("the button alert", alert); //old value
+    console.log('the button count', count); //old value
+    console.log('the button alert', alert); //old value
   };
   const alertClick = () => {
     // console.log(count)
-    setAlert("alert");
-    console.log("the button count", count); //old value
-    console.log("the button alert", alert); //old value
+    setAlert('alert');
+    console.log('the button count', count); //old value
+    console.log('the button alert', alert); //old value
   };
   useEffect(() => {
-    console.log("the useEffect count", count); // new value
-    console.log("the useEffect alert", alert); // new value
+    console.log('the useEffect count', count); // new value
+    console.log('the useEffect alert', alert); // new value
   }, [count, alert]);
 
   return (

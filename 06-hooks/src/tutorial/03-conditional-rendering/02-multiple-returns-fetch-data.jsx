@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-const url = "https://api.github.com/users/QuincyLarson";
+import { useEffect, useState, useCallback } from 'react';
+const url = 'https://api.github.com/users/QuincyLarson';
 
 const MultipleReturnsFetchData = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [user, setUser] = useState(null);
+  console.log('render'); //twice
 
-  const fetchUser = async () => {
+  const fetchUser = useCallback(async () => {
     try {
       const resp = await fetch(url);
       // console.log(resp);
@@ -24,12 +25,13 @@ const MultipleReturnsFetchData = () => {
     }
     // hide loading
     setIsLoading(false);
-  };
+  }, []);
 
-  // do not ass fetchUser as dependecy, it will create infinite loop
+  // do not add fetchUser as dependency, it will create infinite loop
+  // create react app will give you an error if fetchUser is not added to depency => useCallback
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [fetchUser]);
 
   // order matters
   // don't place user JSX before loading or error
@@ -44,7 +46,7 @@ const MultipleReturnsFetchData = () => {
   return (
     <div>
       <img
-        style={{ width: "150px", borderRadius: "25px" }}
+        style={{ width: '150px', borderRadius: '25px' }}
         src={avatar_url}
         alt={name}
       />

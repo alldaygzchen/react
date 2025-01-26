@@ -10,13 +10,13 @@
 // toggle mount
 // CleanupFunction render,RandomComponent useEffect, hello from interval...
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const CleanupFunction = () => {
   const [toggle, setToggle] = useState(false);
-  console.log("CleanupFunction render");
+  console.log('CleanupFunction render');
   useEffect(() => {
-    console.log("CleanupFunction useeffect");
+    console.log('CleanupFunction useeffect');
   }, []);
   return (
     <div>
@@ -29,15 +29,15 @@ const CleanupFunction = () => {
 };
 const RandomComponent = () => {
   useEffect(() => {
-    console.log("RandomComponent useEffect");
+    console.log('RandomComponent useEffect');
     const intID = setInterval(() => {
-      console.log("hello from interval");
+      console.log('hello from interval');
     }, 1000);
     // does not stop, keeps going
     // every time we render component new interval gets created
     return () => {
       clearInterval(intID);
-      console.log("RandomComponent cleanup");
+      console.log('RandomComponent cleanup');
     };
   }, []);
 

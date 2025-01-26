@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const Example = () => {
   const [condition] = useState(true);
@@ -10,7 +10,7 @@ const Example = () => {
   if (condition) {
     return <h2>Hello There</h2>;
   }
-  // this will also fail
+  // it is not recommend since it runs conditionally
   //   useEffect(() => {
   //     console.log("hello there");
   //   }, []);

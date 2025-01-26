@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const ShortCircuitExamples = () => {
   // falsy
-  const [text] = useState("");
+  const [text] = useState('');
   // truthy
-  const [name] = useState("susan");
-  const [user] = useState({ name: "john" });
+  const [name] = useState('susan');
+  const [user] = useState({ name: 'john' });
   const [isEditing] = useState(false);
 
   return (
     <div>
       {/* content inside element */}
-      <h2>{text || "default value"}</h2>
+      <h2>{text || 'default value'}</h2>
       {/* toggle element */}
       {text && (
         <div>
@@ -23,9 +23,9 @@ const ShortCircuitExamples = () => {
       {!text && <h4>also works</h4>}
       {/* toggle component */}
       {user && <SomeComponent name={user.name} />}
-      <h2 style={{ margin: "1rem 0" }}>Ternary Operator</h2>
+      <h2 style={{ margin: '1rem 0' }}>Ternary Operator</h2>
       {/* inside element */}
-      <button className="btn">{isEditing ? "edit" : "add"}</button>
+      <button className="btn">{isEditing ? 'edit' : 'add'}</button>
       {/* toggle elements/components */}
       {user ? (
         <div>
