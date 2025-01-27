@@ -1,9 +1,12 @@
-import BirthdayBuddy from './components/birthday-buddy/BirthdayBuddy';
+// import BirthdayBuddy from './components/birthday-buddy/BirthdayBuddy';
+
+import Tours from './components/tours/Tours';
 
 function App() {
   return (
     <>
-      <BirthdayBuddy />
+      {/* <BirthdayBuddy /> */}
+      <Tours />
     </>
   );
 }
