@@ -1,13 +1,17 @@
 // import BirthdayBuddy from './components/birthday-buddy/BirthdayBuddy';
-import Tours from './components/tours/Tours';
-import Reviews from './components/reviews/Reviews';
+// import Tours from './components/tours/Tours';
+// import Reviews from './components/reviews/Reviews';
+import Accordion from './components/accordion/Accordion';
+import AccordionAlt from './components/accordionalt/AccordionAlt';
 
 function App() {
   return (
     <>
       {/* <BirthdayBuddy /> */}
       {/* <Tours /> */}
-      <Reviews />
+      {/* <Reviews /> */}
+      {/* <Accordion /> */}
+      <AccordionAlt />
     </>
   );
 }
