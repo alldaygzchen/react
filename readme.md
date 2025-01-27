@@ -493,6 +493,10 @@
     </button>
   ```
 
+### react icons
+
+- https://react-icons.github.io/react-icons/
+
 # Additional React
 
 ```
