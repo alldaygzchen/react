@@ -474,6 +474,25 @@
     </Suspense>
     ```
 
+# 07-fundamental-projects
+
+### https://react-projects.netlify.app/
+
+### css module
+
+- Scoped Styles: CSS Modules automatically scope styles to the specific component, avoiding class name collisions.
+- Class Composition: You can compose multiple classes:
+  ```
+    <div className={`${styles.container} ${styles.additionalClass}`}></div>
+  ```
+- Dynamic Classes: For conditional styling, use JavaScript:
+
+  ```
+    <button className={isActive ? styles.activeButton : styles.inactiveButton}>
+      Click Me
+    </button>
+  ```
+
 # Additional React
 
 ```
