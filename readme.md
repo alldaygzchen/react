@@ -499,7 +499,11 @@
 
 ### recommend component
 
-- accordion (1. not working with css 2. accordion vs accordionalt component state)
+- accordion (accordion vs accordionalt component state)
+  - the child component is individual vs the global state is shared each other
+- menu
+  - categories are static value
+  - only items are changed, we can use function set to trigger, no need to use useState
 
 # Additional React
 
