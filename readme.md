@@ -503,7 +503,9 @@
   - the child component is individual vs the global state is shared each other
 - menu
   - categories are static value
-  - only items are changed, we can use function set to trigger, no need to use useState
+  - only items are changed, we can use function set to trigger, no need to use useState for specfic category
+- tabs
+  - similar to accordionAlt
 
 # Additional React
 

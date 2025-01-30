@@ -3,7 +3,8 @@
 // import Reviews from './components/reviews/Reviews';
 import Accordion from './components/accordion/Accordion';
 import AccordionAlt from './components/accordionalt/AccordionAlt';
-import Menu from './components/menu/Menu';
+import Tabs from './components/tabs/Tabs';
+// import Menu from './components/menu/Menu';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <Reviews /> */}
       {/* <Accordion /> */}
       {/* <AccordionAlt /> */}
-      <Menu />
+      {/* <Menu /> */}
+      <Tabs />
     </>
   );
 }
