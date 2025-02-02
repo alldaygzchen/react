@@ -7,7 +7,9 @@
 // import Menu from './components/menu/Menu';
 // import Slider from './components/slider/Slider';
 // import Lorem from './components/lorem/Lorem';
-import ColorGenerator from './components/color-generator/ColorGenerator';
+// import ColorGenerator from './components/color-generator/ColorGenerator';
+import GroceryBud from './components/grocery-bud/groceryBud';
+import GroceryBudAlt from './components/grocery-budalt/groceryBudAlt';
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
       {/* <Tabs /> */}
       {/* <Slider /> */}
       {/* <Lorem /> */}
-      <ColorGenerator />
+      {/* <ColorGenerator /> */}
+      {/* <GroceryBud /> */}
+      <GroceryBudAlt />
     </>
   );
 }

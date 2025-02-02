@@ -511,6 +511,15 @@
   - slider vs tabs (filter first)
 - color generator
   - onclick can use async function
+- groceryBud
+
+```
+    - By default, a child's local state does not reset when the parent updates. However:
+    If the child gets props from the parent, it will react to changes.
+    If you want to reset the child's state, you can use the key prop.
+
+    - it only runs once when the component mounts and does not run again when the parent re-renders.
+```
 
 # Additional React
 
