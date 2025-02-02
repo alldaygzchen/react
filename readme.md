@@ -505,7 +505,10 @@
   - categories are static value
   - only items are changed, we can use function set to trigger, no need to use useState for specfic category
 - tabs
-  - similar to accordionAlt
+  - similar to accordionAlt (filter)
+  - good css (make good use of grid and flex)
+- slider
+  - slider vs tabs (filter first)
 
 # Additional React
 
