@@ -74,7 +74,7 @@ const Reviews = () => {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
-    fetch('../../../../data.json')
+    fetch('../../../../reviews.json')
       .then((response) => response.json())
       .then((data) => setPeople(data))
       .catch((error) => console.error('Error fetching data:', error));
