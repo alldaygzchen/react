@@ -701,7 +701,7 @@ main {
 
 /* ============= CAROUSEL CSS =============== */
 
-/* .slider-container {
+.slider-container {
   margin: 0 auto;
   margin-top: 10rem;
   width: 80vw;
@@ -807,10 +807,10 @@ main {
 }
 .slick-next::before {
   color: var(--primary-500) !important;
-} */
+}
 
 /* ============= LOREM CSS =============== */
-.section-center {
+/* .section-center {
   width: 80vw;
   max-width: 40rem;
   margin: 10rem auto;
@@ -849,4 +849,4 @@ main {
 .lorem-text p {
   line-height: 2;
   margin-bottom: 2rem;
-}
+} */

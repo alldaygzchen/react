@@ -5,8 +5,8 @@
 // import AccordionAlt from './components/accordionalt/AccordionAlt';
 // import Tabs from './components/tabs/Tabs';
 // import Menu from './components/menu/Menu';
-// import Slider from './components/slider/Slider';
-import Lorem from './components/lorem/Lorem';
+import Slider from './components/slider/Slider';
+// import Lorem from './components/lorem/Lorem';
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
       {/* <AccordionAlt /> */}
       {/* <Menu /> */}
       {/* <Tabs /> */}
-      {/* <Slider /> */}
-      <Lorem />
+      <Slider />
+      {/* <Lorem /> */}
     </>
   );
 }

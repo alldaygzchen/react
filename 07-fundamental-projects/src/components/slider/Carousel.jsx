@@ -2,9 +2,17 @@ import { useEffect, useState } from 'react';
 import { shortList, list, longList } from './data';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import useFetch from './useFetch';
+
+const url = '../../../../slider.json';
 
 const Carousel = () => {
-  const [people, setPeople] = useState(longList);
+  // const [people, setPeople] = useState(longList);
+  const {
+    isLoading: loading,
+    isError: error,
+    data: people,
+  } = useFetch(url, []);
   const [currentPerson, setCurrentPerson] = useState(0);
 
   const prevSlide = () => {
@@ -30,6 +38,14 @@ const Carousel = () => {
       clearInterval(sliderId);
     };
   }, [currentPerson]);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h2>There was an error...</h2>;
+  }
 
   return (
     <section className="slider-container">
