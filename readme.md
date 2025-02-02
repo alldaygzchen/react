@@ -509,6 +509,8 @@
   - good css (make good use of grid and flex)
 - slider
   - slider vs tabs (filter first)
+- color generator
+  - onclick can use async function
 
 # Additional React
 
