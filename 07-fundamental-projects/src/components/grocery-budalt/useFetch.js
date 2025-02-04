@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useFetch = (url, initialData = []) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -8,6 +8,7 @@ const useFetch = (url, initialData = []) => {
 
   useEffect(() => {
     // change name
+    console.log("useFetch useeffect");
     const fetchData = async () => {
       try {
         const resp = await fetch(url);
@@ -20,7 +21,7 @@ const useFetch = (url, initialData = []) => {
         // change to response
         const response = await resp.json();
         setData(response);
-      } catch (error) {
+      } catch {
         setIsError(true);
         // console.log(error);
       }

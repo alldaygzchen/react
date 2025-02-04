@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
 const SingleItem = ({ item, removeItem, editItem, updateItem }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState(item.name);
   const inputRef = useRef(null);
   const [test, setTest] = useState(false);
-  console.log('test', test);
+  console.log("SingleItem Render", "test", test);
 
   const handleUpdateClick = () => {
     setIsEditing(true);
@@ -18,19 +18,19 @@ const SingleItem = ({ item, removeItem, editItem, updateItem }) => {
   };
 
   useEffect(() => {
-    // console.log('useEffect1 start');
+    console.log("useEffect1 start");
     if (isEditing) {
-      console.log('isEditing');
-      document.addEventListener('mousedown', handleOutsideClick);
+      console.log("isEditing");
+      document.addEventListener("mousedown", handleOutsideClick);
     }
     return () => {
-      //   console.log('useEffect1 cleanup');
-      document.removeEventListener('mousedown', handleOutsideClick);
+      console.log("useEffect1 cleanup");
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [isEditing]);
+  }, [isEditing]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    console.log('useEffect2 start');
+    // console.log("useEffect2 start");
     setTest(true);
   }, []);
 
@@ -51,8 +51,8 @@ const SingleItem = ({ item, removeItem, editItem, updateItem }) => {
       ) : (
         <p
           style={{
-            textTransform: 'capitalize',
-            textDecoration: item.completed && 'line-through',
+            textTransform: "capitalize",
+            textDecoration: item.completed && "line-through",
           }}
         >
           {item.name}

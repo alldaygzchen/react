@@ -508,18 +508,21 @@
   - similar to accordionAlt (filter)
   - good css (make good use of grid and flex)
 - slider
-  - slider vs tabs (filter first)
+  - slider vs tabs (loop first)
 - color generator
   - onclick can use async function
 - groceryBud
 
 ```
-    - By default, a child's local state does not reset when the parent updates. However:
-    If the child gets props from the parent, it will react to changes.
-    If you want to reset the child's state, you can use the key prop.
-
-    - it only runs once when the component mounts and does not run again when the parent re-renders.
+    - By default, a child's local state and useffect does not reset when the parent updates. However:
+      1.If the child gets props from the parent, it will react to changes.
+      2. If you want to reset the child's state, you can use the key prop.
+    - useeffect =>  render=>cleanup=>the first argument
+    - // eslint-disable-line react-hooks/exhaustive-deps
 ```
+
+- tools
+  - https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 
 # Additional React
 

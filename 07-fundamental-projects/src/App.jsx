@@ -8,8 +8,8 @@
 // import Slider from './components/slider/Slider';
 // import Lorem from './components/lorem/Lorem';
 // import ColorGenerator from './components/color-generator/ColorGenerator';
-import GroceryBud from './components/grocery-bud/groceryBud';
-import GroceryBudAlt from './components/grocery-budalt/groceryBudAlt';
+// import GroceryBud from './components/grocery-bud/groceryBud';
+import GroceryBudAlt from "./components/grocery-budalt/groceryBudAlt";
 
 function App() {
   return (
