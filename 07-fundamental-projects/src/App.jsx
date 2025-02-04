@@ -10,7 +10,9 @@
 // import ColorGenerator from './components/color-generator/ColorGenerator';
 // import GroceryBud from './components/grocery-bud/groceryBud';
 // import GroceryBudAlt from "./components/grocery-budalt/groceryBudAlt";
-import NavbarComponent from "./components/navBar/NavbarComponent";
+// import NavbarComponent from "./components/navBar/NavbarComponent";
+import { AppProvider } from "./components/Panel/context";
+import Panel from "./components/Panel/Panel";
 
 function App() {
   return (
@@ -27,7 +29,10 @@ function App() {
       {/* <ColorGenerator /> */}
       {/* <GroceryBud /> */}
       {/* <GroceryBudAlt /> */}
-      <NavbarComponent />
+      {/* <NavbarComponent /> */}
+      <AppProvider>
+        <Panel />
+      </AppProvider>
     </>
   );
 }

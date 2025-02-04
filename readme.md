@@ -524,10 +524,45 @@
 - navbar componemt
 
 ```
-  - great ccs (desing:small->big)
-  - nav-center is for alignment
+  - great css (design:small->big using navCenter class)
   - getBoundingClientRect for linksContainerRef not for linksRef
   - useRef
+  - data.jsx
+```
+
+- Panel Component
+
+```
+  - great css (hide modal and sidebar by default)
+  - modal-overlay show-modal
+  - sidebar show-sidebar
+```
+
+```
+  Parent:
+      <AppProvider>
+        <Panel />
+      </AppProvider>
+```
+
+```
+  Child:
+    <AppContext.Provider
+      value={{
+        isSidebarOpen,
+        isModalOpen,
+        openModal,
+        openSidebar,
+        closeModal,
+        closeSidebar,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+```
+
+```
+  - // eslint-disable-next-line react-refresh/only-export-components
 ```
 
 - tools
