@@ -9,7 +9,8 @@
 // import Lorem from './components/lorem/Lorem';
 // import ColorGenerator from './components/color-generator/ColorGenerator';
 // import GroceryBud from './components/grocery-bud/groceryBud';
-import GroceryBudAlt from "./components/grocery-budalt/groceryBudAlt";
+// import GroceryBudAlt from "./components/grocery-budalt/groceryBudAlt";
+import NavbarComponent from "./components/navBar/NavbarComponent";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
       {/* <Lorem /> */}
       {/* <ColorGenerator /> */}
       {/* <GroceryBud /> */}
-      <GroceryBudAlt />
+      {/* <GroceryBudAlt /> */}
+      <NavbarComponent />
     </>
   );
 }

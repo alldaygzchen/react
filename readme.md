@@ -521,6 +521,15 @@
     - // eslint-disable-line react-hooks/exhaustive-deps
 ```
 
+- navbar componemt
+
+```
+  - great ccs (desing:small->big)
+  - nav-center is for alignment
+  - getBoundingClientRect for linksContainerRef not for linksRef
+  - useRef
+```
+
 - tools
   - https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 
