@@ -11,8 +11,10 @@
 // import GroceryBud from './components/grocery-bud/groceryBud';
 // import GroceryBudAlt from "./components/grocery-budalt/groceryBudAlt";
 // import NavbarComponent from "./components/navBar/NavbarComponent";
-import { AppProvider } from "./components/Panel/context";
-import Panel from "./components/Panel/Panel";
+// import { AppProvider } from "./components/Panel/context";
+// import Panel from "./components/Panel/Panel";
+import { AppProvider } from "./components/frontPage/Context";
+import FrontPage from "./components/frontPage/frontPage";
 
 function App() {
   return (
@@ -30,8 +32,11 @@ function App() {
       {/* <GroceryBud /> */}
       {/* <GroceryBudAlt /> */}
       {/* <NavbarComponent /> */}
-      <AppProvider>
+      {/* <AppProvider>
         <Panel />
+      </AppProvider> */}
+      <AppProvider>
+        <FrontPage />
       </AppProvider>
     </>
   );

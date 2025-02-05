@@ -521,7 +521,7 @@
     - // eslint-disable-line react-hooks/exhaustive-deps
 ```
 
-- navbar componemt
+- navbar component
 
 ```
   - great css (design:small->big using navCenter class)
