@@ -512,6 +512,9 @@
 - color generator
   - onclick can use async function
 - groceryBud
+- frontPage
+  - display, visibility, opacity, z-index
+  - mouseLeave, mouseEnter, mouseOver (combination with e.target.classList and useRef(getBoundingClientRect) )
 
 ```
     - By default, a child's local state and useffect does not reset when the parent updates. However:
