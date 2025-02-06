@@ -568,6 +568,10 @@
   - // eslint-disable-next-line react-refresh/only-export-components
 ```
 
+- Cart Component
+
+  - context.js with useEffect
+
 - tools
   - https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 

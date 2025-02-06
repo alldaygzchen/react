@@ -13,9 +13,10 @@
 // import NavbarComponent from "./components/navBar/NavbarComponent";
 // import { AppProvider } from "./components/Panel/context";
 // import Panel from "./components/Panel/Panel";
-import { AppProvider } from "./components/frontPage/Context";
-import FrontPage from "./components/frontPage/frontPage";
-
+// import { AppProvider } from './components/frontPage/Context';
+// import FrontPage from './components/frontPage/frontPage';
+import { AppProvider } from './components/cart/context';
+import Cart from './components/cart/Cart';
 function App() {
   return (
     <>
@@ -35,8 +36,11 @@ function App() {
       {/* <AppProvider>
         <Panel />
       </AppProvider> */}
-      <AppProvider>
+      {/* <AppProvider>
         <FrontPage />
+      </AppProvider> */}
+      <AppProvider>
+        <Cart />
       </AppProvider>
     </>
   );
