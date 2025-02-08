@@ -575,63 +575,130 @@
 - tools
   - https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 
+# 08- axios
+
+- promise
+
+  - If fetchData() only logs data, you can call it normally (fetchData();).
+  - If fetchData() needs to return data, you must handle its promise using .then() or await inside another async function.
+
+- axios basics
+
+  ```
+  const url = 'https://www.course-api.com/react-store-products';
+  const FirstRequest = () => {
+  const fetchData = async () => {
+  try {
+  const response = await axios(url);
+  const data = response.data;
+  console.log(data);
+  } catch (error) {
+  console.log(error.response);
+  }
+  };
+
+  useEffect(() => {
+  fetchData();
+  }, []);
+
+  return <h2 className="text-center">first request</h2>;
+  };
+  export default FirstRequest;
+  ```
+
+- axios crud
+  ```
+  axios.get(url,header), axios.post(url,data,header)
+  ```
+- global
+  ```
+  axios.defaults.headers['Accept'] = 'application/json';
+  ```
+- custom instance and interceptors
+
+  ```
+  const authFetch = axios.create({
+  baseURL: 'https://www.course-api.com',
+  });
+
+  authFetch.interceptors.request.use(
+  (request) => {
+  // old version
+  // request.headers.common['Accept'] = 'application/json';
+  request.headers['Accept'] = 'application/json';
+
+      console.log('request sent');
+      return request;
+
+  },
+  (error) => {
+  return Promise.reject(error);
+  }
+  );
+
+  ```
+
 # Additional React
 
 ```
+
 import React, { useState } from 'react';
 
 const ManualEventWithFetch = () => {
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+const [data, setData] = useState(null);
+const [isLoading, setIsLoading] = useState(false);
+const [error, setError] = useState(null);
 
-  const fetchData = async () => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch('https://api.example.com/data');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const result = await response.json();
-      setData(result);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+const fetchData = async () => {
+setIsLoading(true);
+setError(null);
+try {
+const response = await fetch('https://api.example.com/data');
+if (!response.ok) {
+throw new Error('Network response was not ok');
+}
+const result = await response.json();
+setData(result);
+} catch (error) {
+setError(error.message);
+} finally {
+setIsLoading(false);
+}
+};
 
-  const handleClick = () => {
-    fetchData();
-  };
+const handleClick = () => {
+fetchData();
+};
 
-  return (
-    <div>
-      <h1>Fetch Data on Button Click</h1>
-      <button onClick={handleClick}>Fetch Data</button>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {data && (
-        <div>
-          <h2>Data:</h2>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
-        </div>
-      )}
-    </div>
-  );
+return (
+
+<div>
+<h1>Fetch Data on Button Click</h1>
+<button onClick={handleClick}>Fetch Data</button>
+{isLoading && <p>Loading...</p>}
+{error && <p>Error: {error}</p>}
+{data && (
+<div>
+<h2>Data:</h2>
+<pre>{JSON.stringify(data, null, 2)}</pre>
+</div>
+)}
+</div>
+);
 };
 
 export default ManualEventWithFetch;
+
 ```
 
 # Additional JS
 
 ```
+
 const obj = {
-  a: 1,
-  b: 2,
-  c: 3
+a: 1,
+b: 2,
+c: 3
 };
 
 // Destructuring only specific keys (a and b)
@@ -639,42 +706,44 @@ const { a, b } = obj;
 
 console.log(a); // 1
 console.log(b); // 2
+
 ```
 
 ```
+
 function examplePromise() {
-  console.log('Promise')
-  return new Promise((resolve, reject) => {
-    // Simulate an asynchronous operation
-    setTimeout(() => {
-      const success = true; // Change to `false` to simulate an error
-      if (success) {
-        resolve("Operation successful!");
-      } else {
-        reject("Operation failed!");
-      }
-    }, 6000);
-  });
+console.log('Promise')
+return new Promise((resolve, reject) => {
+// Simulate an asynchronous operation
+setTimeout(() => {
+const success = true; // Change to `false` to simulate an error
+if (success) {
+resolve("Operation successful!");
+} else {
+reject("Operation failed!");
+}
+}, 6000);
+});
 }
 
 /////////////////////////////////////////////////////////////////////////
 
 examplePromise()
-  .then((result) => console.log(result)) // Logs: Operation successful!
-  .catch((error) => console.error(error)); // Logs: Operation failed! (if rejected)
+.then((result) => console.log(result)) // Logs: Operation successful!
+.catch((error) => console.error(error)); // Logs: Operation failed! (if rejected)
 
 console.log("This logs before the promise resolves!");
 
 /////////////////////////////////////////////////////////////////////////
 
 async function exampleAsync() {
-  try {
-    console.log("Starting async function...");
-    const result = await examplePromise(); // Waits for the promise to resolve
-    console.log(result); // Logs: Operation successful!
-  } catch (error) {
-    console.error(error); // Logs: Operation failed! (if rejected)
-  }
+try {
+console.log("Starting async function...");
+const result = await examplePromise(); // Waits for the promise to resolve
+console.log(result); // Logs: Operation successful!
+} catch (error) {
+console.error(error); // Logs: Operation failed! (if rejected)
+}
 }
 
 // Call the async function
@@ -683,12 +752,12 @@ console.log("This logs before the promise resolves!");
 
 /////////////////////////////////////////////////////////////////////////
 // Optional Chaining
- object?.property?.subProperty
+object?.property?.subProperty
 
- is equivalent to below statement
+is equivalent to below statement
 
- if (object && object.property && object.property.subProperty) {
-  // Do something
+if (object && object.property && object.property.subProperty) {
+// Do something
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -697,4 +766,17 @@ console.log("This logs before the promise resolves!");
 0, "", null, undefined, NaN
 // Short Circuit Evaluation
 &&, ||
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
