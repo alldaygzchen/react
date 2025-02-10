@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-const url = 'https://www.course-api.com/axios-tutorial-post';
+const url = 'https://www.course-api.com/axios-tutorial-postd';
 
 const PostRequest = () => {
   const [name, setName] = useState('');
@@ -12,7 +12,9 @@ const PostRequest = () => {
       const resp = await axios.post(url, { name, email });
       console.log(resp.data);
     } catch (error) {
-      console.log(error.response);
+      console.log('error', error);
+      console.log('error.response', error.response);
+      console.log('error.message', error.message);
     }
   };
 

@@ -638,6 +638,8 @@
 
   ```
 
+# 09 - React Query
+
 # Additional React
 
 ```
@@ -689,6 +691,12 @@ return (
 
 export default ManualEventWithFetch;
 
+```
+
+# Additional Extension
+
+```
+Thunder client
 ```
 
 # Additional JS
@@ -766,17 +774,5 @@ if (object && object.property && object.property.subProperty) {
 0, "", null, undefined, NaN
 // Short Circuit Evaluation
 &&, ||
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
 
 ```
