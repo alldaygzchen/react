@@ -640,6 +640,73 @@
 
 # 09 - React Query
 
+- React Query is a powerful tool that simplifies data fetching, caching, and synchronization. It handles side effects like fetching, posting data, and refetching without the need for useEffect.
+- step1
+
+```
+createRoot(document.getElementById('root')).render(
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>
+```
+
+- step2
+
+```
+export const useFetchTasks = () => {
+  const { isLoading, data, isError, error } = useQuery({
+    queryKey: ['tasks'],
+    queryFn: async () => {
+      const { data } = await customFetch.get('/');
+      return data;
+    },
+  });
+  return { isLoading, isError, data };
+};
+
+export const useCreateTask = () => {
+  const queryClient = useQueryClient();
+  const { mutate: createTask, isLoading } = useMutation({
+    mutationFn: (taskTitle) => customFetch.post('/', { title: taskTitle }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['tasks'] });
+      toast.success('task added');
+    },
+    onError: (error) => {
+      toast.error(error.response.data.msg);
+    },
+  });
+  return { createTask, isLoading };
+};
+```
+
+- step3
+
+```
+const { isLoading, isError, data } = useFetchTasks();
+
+const { isLoading, createTask } = useCreateTask();
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  createTask(newItemName, {
+    onSuccess: () => {
+      setNewItemName('');
+    },
+  });
+};
+```
+
+# 10
+
+- create .env file (however, we call still see in the chrome dev)
+
+```
+const url = `https://api.unsplash.com/search/photos?client_id=${
+  import.meta.env.VITE_API_KEY
+}`;
+```
+
 # Additional React
 
 ```
