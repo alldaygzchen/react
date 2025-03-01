@@ -103,3 +103,5 @@
   - Better to use a grid, if the layout is two dimensional;
 
 - grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+# tailwind css
