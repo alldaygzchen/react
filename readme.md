@@ -717,7 +717,10 @@ const url = `https://api.unsplash.com/search/photos?client_id=${
   import {Link} from "react-router-dom"
   <Link to='/about'>About Page</Link>
   ```
-- 416
+
+# 13
+
+https://v3.tailwindcss.com/docs/guides/vite
 
 # Additional React
 
