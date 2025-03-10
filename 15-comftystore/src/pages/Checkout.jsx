@@ -1,16 +1,16 @@
-import { useSelector } from "react-redux";
-import { CheckoutForm, SectionTitle, CartTotals } from "../components";
-import { toast } from "react-toastify";
-import { redirect } from "react-router-dom";
-import { customFetch, formatPrice } from "../utils";
-import { clearCart } from "../features/cart/cartSlice";
+import { useSelector } from 'react-redux';
+import { CheckoutForm, SectionTitle, CartTotals } from '../components';
+import { toast } from 'react-toastify';
+import { redirect } from 'react-router-dom';
+import { customFetch, formatPrice } from '../utils';
+import { clearCart } from '../features/cart/cartSlice';
 
 export const loader = (store) => () => {
   const user = store.getState().userState.user;
 
   if (!user) {
-    toast.warn("You must be logged in to checkout");
-    return redirect("/login");
+    toast.warn('You must be logged in to checkout');
+    return redirect('/login');
   }
   return null;
 };
@@ -35,7 +35,7 @@ export const action =
 
     try {
       const response = await customFetch.post(
-        "/orders",
+        '/orders',
         { data: info },
         {
           headers: {
@@ -43,17 +43,16 @@ export const action =
           },
         }
       );
-      queryClient.removeQueries(["orders"]);
+      queryClient.removeQueries(['orders']);
       store.dispatch(clearCart());
-      toast.success("order placed successfully");
-      return redirect("/orders");
+      toast.success('order placed successfully');
+      return redirect('/orders');
     } catch (error) {
-      console.log(error);
       const errorMessage =
         error?.response?.data?.error?.message ||
-        "there was an error placing your order";
+        'there was an error placing your order';
       toast.error(errorMessage);
-      if (error?.response?.status === 401 || 403) return redirect("/login");
+      if (error?.response?.status === 401 || 403) return redirect('/login');
       return null;
     }
   };
