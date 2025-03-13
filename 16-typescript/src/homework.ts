@@ -123,3 +123,160 @@
 
 // printStaffDetails(alice); // Outputs: Alice is an employee in the Sales department.
 // printStaffDetails(bob);
+
+///////////////////////
+// [ Interface ]
+///////////////////////
+
+// interface Computer {
+//   readonly id: number;
+//   brand: string;
+//   ram: number;
+//   upgradeRam(increase: number): number;
+//   storage?: number;
+// }
+
+// const laptop: Computer = {
+//   id: 1,
+//   brand: "random brand",
+//   ram: 8,
+//   upgradeRam(amount: number) {
+//     this.ram += amount;
+//     return this.ram;
+//   },
+// };
+
+// laptop.storage = 256;
+
+// console.log(laptop.upgradeRam(4));
+// console.log(laptop);
+
+///////////////////////
+// [ Interface - Merging, Extend, TypeGuard ]
+///////////////////////
+
+// interface Person {
+//   name: string;
+// }
+
+// interface DogOwner extends Person {
+//   dogName: string;
+// }
+
+// interface Manager extends Person {
+//   managePeople(): void;
+//   delegateTasks(): void;
+// }
+
+// function getEmployee(): Person | DogOwner | Manager {
+//   const random = Math.random();
+
+//   if (random < 0.33) {
+//     return {
+//       name: "john",
+//     };
+//   } else if (random < 0.66) {
+//     return {
+//       name: "sarah",
+//       dogName: "Rex",
+//     };
+//   } else {
+//     return {
+//       name: "bob",
+//       managePeople: () => console.log("Managing people..."),
+//       delegateTasks: () => console.log("Delegating tasks..."),
+//     };
+//   }
+// }
+
+// const employee: Person | DogOwner | Manager = getEmployee();
+// console.log(employee);
+
+// // compile error
+// // function isManager(obj: Person | DogOwner | Manager): boolean {
+// //   return "managePeople" in obj;
+// // }
+
+// function isManager(obj: Person | DogOwner | Manager): obj is Manager {
+//   return "managePeople" in obj;
+// }
+
+// if (isManager(employee)) {
+//   employee.delegateTasks();
+// }
+
+///////////////////////
+// [ Enums ]
+///////////////////////
+
+// enum UserRole {
+//   Admin,
+//   Manager,
+//   Employee,
+// }
+
+// // Define a type alias named User
+// type User = {
+//   id: number;
+//   name: string;
+//   role: UserRole;
+//   contact: [string, string]; // Tuple: [email, phone]
+// };
+
+// // Define a function named createUser
+// function createUser(user: User): User {
+//   return user;
+// }
+
+// // Call the createUser function
+// const user: User = createUser({
+//   id: 1,
+//   name: "John Doe",
+//   role: UserRole.Admin,
+//   contact: ["john.doe@example.com", "123-456-7890"],
+// });
+
+// console.log(user);
+
+///////////////////////
+// [ Challenge - Discriminated Unions and exhaustive check using the never type ]
+///////////////////////
+
+// type IncrementAction = {
+//   type: "increment";
+//   amount: number;
+//   timestamp: number;
+//   user: string;
+// };
+
+// type DecrementAction = {
+//   type: "decrement";
+//   amount: number;
+//   timestamp: number;
+//   user: string;
+// };
+
+// type Action = IncrementAction | DecrementAction;
+
+// function reducer(state: number, action: Action): number {
+//   switch (action.type) {
+//     case "increment":
+//       return state + action.amount;
+//     // if remove decrement,, it will have a compile error
+//     case "decrement":
+//       return state - action.amount;
+
+//     default:
+//       const unexpectedAction: never = action;
+//       throw new Error(`Unexpected action: ${unexpectedAction}`);
+//   }
+// }
+
+// const newState = reducer(15, {
+//   user: "john",
+//   type: "increment",
+//   amount: 5,
+//   timestamp: 123456,
+// });
+
+// console.log("newState", newState);
