@@ -883,6 +883,7 @@
 
 ///////////////////////
 
+// // Define generic function
 // function createArray<T>(length: number, value: T): Array<T> {
 //   let result: T[] = [];
 //   result = Array(length).fill(value);
@@ -1065,51 +1066,305 @@
 
 ///////////////////////
 // [ Fetch data and Declararation Files ]
-//
 ///////////////////////
 
-const url = "https://www.scourse-api.com/react-tours-project";
+// const url = 'https://www.course-api.com/react-tours-project';
 
-// Define a type for the data you're fetching.
-type Tour = {
-  id: string;
-  name: string;
-  info: string;
-  image: string;
-  price: string;
-  // Add more fields as necessary.
-};
+// // Define a type for the data you're fetching.
+// type Tour = {
+//   id: string;
+//   name: string;
+//   info: string;
+//   image: string;
+//   price: string;
+//   // Add more fields as necessary.
+// };
 
-async function fetchData(url: string): Promise<Tour[]> {
-  try {
-    const response = await fetch(url);
+// async function fetchData(url: string): Promise<Tour[]> {
+//   try {
+//     const response = await fetch(url);
 
-    // Check if the request was successful.
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+//     // Check if the request was successful.
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
 
-    const data: Tour[] = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    const errMsg =
-      error instanceof Error ? error.message : "there was an error...";
-    console.error(errMsg);
+//     const data: Tour[] = await response.json();
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     const errMsg =
+//       error instanceof Error ? error.message : 'there was an error...';
+//     console.error(errMsg);
 
-    // throw error;
-    return [];
-  }
-}
+//     // throw error;
+//     return [];
+//   }
+// }
 
-const tours = await fetchData(url);
-tours.map((tour) => {
-  console.log(tour.name);
-});
+// const tours = await fetchData(url);
+// tours.map((tour) => {
+//   console.log(tour.name);
+// });
 
 ///////////////////////
 // axios
 
+// import axios from 'axios';
+
+// const url = 'https://www.course-api.com/react-tours-project';
+
+// // Define a type for the data you're fetching.
+// type Tour = {
+//   id: string;
+//   name: string;
+//   info: string;
+//   image: string;
+//   price: string;
+//   // Add more fields as necessary.
+// };
+
+// async function fetchData(url: string): Promise<Tour[]> {
+//   try {
+//     const response = await axios.get<Tour[]>(url);
+//     // Check if the request was successful.
+//     if (response.status !== 200) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+
+//     const data = response.data;
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     const errMsg =
+//       error instanceof Error ? error.message : 'there was an error...';
+//     console.error(errMsg);
+
+//     // throw error;
+//     return [];
+//   }
+// }
+
+// const tours = await fetchData(url);
+// tours.map((tour) => {
+//   console.log(tour.name);
+// });
+
 ///////////////////////
 
 // zod - runtime check (13:25)
+
+// import { z } from 'zod';
+// const url = 'https://www.course-api.com/react-tours-project';
+
+// const tourSchema = z.object({
+//   id: z.string(),
+//   name: z.string(),
+//   info: z.string(),
+//   image: z.string(),
+//   price: z.string(),
+//   // something: z.string(),
+// });
+
+// // extract the inferred type
+// type Tour = z.infer<typeof tourSchema>;
+
+// async function fetchData(url: string): Promise<Tour[]> {
+//   try {
+//     const response = await fetch(url);
+
+//     // Check if the request was successful.
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+
+//     const rawData: Tour[] = await response.json();
+//     const result = tourSchema.array().safeParse(rawData);
+//     if (!result.success) {
+//       throw new Error(`Invalid data: ${result.error}`);
+//     }
+//     return result.data;
+//   } catch (error) {
+//     const errMsg =
+//       error instanceof Error ? error.message : 'there was an error...';
+//     console.log(errMsg);
+
+//     // throw error;
+//     return [];
+//   }
+// }
+
+// const tours = await fetchData(url);
+// tours.map((tour) => {
+//   console.log(tour.name);
+// });
+
+///////////////////////
+
+// typescript declaration files
+
+// In TypeScript, .d.ts files, also known as declaration files,consist of type definitions, and are used to provide types for JavaScript code.
+// tsconfig.json e.g. "lib": ["ES2020", "DOM", "DOM.Iterable"]
+// if we cannot use npm install libraries, use this repo (https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types)
+// npm install --save-dev @types/bcryptjs
+
+///////////////////////
+
+// tsconfig.json Configuration
+// https://github.com/john-smilga/react-course-v3/tree/main/13-typescript-tutorial
+
+///////////////////////
+// [ Classes ]
+///////////////////////
+
+// Classes - Intro
+
+// class Book {
+//   title: string;
+//   author: string;
+//   constructor(title: string, author: string) {
+//     this.title = title;
+//     this.author = author;
+//   }
+// }
+
+// const deepWork = new Book('deep work ', 'cal newport');
+// console.log(deepWork);
+
+///////////////////////
+
+// Classes - Default Property
+
+// class Book {
+//   title: string;
+//   author: string;
+//   checkedOut: boolean = false;
+//   constructor(title: string, author: string) {
+//     this.title = title;
+//     this.author = author;
+//   }
+// }
+
+// const deepWork = new Book('deep work ', 'cal newport');
+// deepWork.checkedOut = true;
+
+///////////////////////
+
+// Classes - ReadOnly Modifier
+// class Book {
+//   readonly title: string;
+//   author: string;
+//   checkedOut: boolean = false;
+//   constructor(title: string, author: string) {
+//     this.title = title;
+//     this.author = author;
+//   }
+// }
+
+// const deepWork = new Book('deep work ', 'cal newport');
+// // error
+// deepWork.title = 'something else';
+
+///////////////////////
+// Classes - Private and Public Modifiers
+// even if private we can still see the value using console.log
+
+// class Book {
+//   public readonly title: string;
+//   public author: string;
+//   private checkedOut: boolean = false;
+//   constructor(title: string, author: string) {
+//     this.title = title;
+//     this.author = author;
+//   }
+//   public checkOut() {
+//     this.checkedOut = this.toggleCheckedOutStatus();
+//   }
+//   public isCheckedOut() {
+//     return this.checkedOut;
+//   }
+//   private toggleCheckedOutStatus() {
+//     return !this.checkedOut;
+//   }
+// }
+
+// const deepWork = new Book('Deep Work', 'Cal Newport');
+// // error
+// deepWork.checkedOut
+// deepWork.checkOut();
+// console.log(deepWork.isCheckedOut());
+// // error
+// deepWork.toggleCheckedOutStatus();
+
+///////////////////////
+
+// Classes - Shorthand Syntax
+// private can still be in constructor
+
+// class Book {
+//   private checkedOut: boolean = false;
+//   constructor(
+//     public readonly title: string,
+//     public author: string,
+//     private someValue: number
+//   ) {}
+//   get seeSomeValue() {
+//     return this.someValue;
+//   }
+//   get seeCheckOut() {
+//     return this.checkedOut;
+//   }
+// }
+
+///////////////////////
+
+// Classes - Getters and Setters
+
+// class Book {
+//   private checkedOut: boolean = false;
+//   constructor(public readonly title: string, public author: string) {}
+//   get info() {
+//     return `${this.title} by ${this.author}`;
+//   }
+
+//   private set checkOut(checkedOut: boolean) {
+//     this.checkedOut = checkedOut;
+//   }
+//   get checkOut() {
+//     return this.checkedOut;
+//   }
+//   public get someInfo() {
+//     this.checkOut = true;
+//     return `${this.title} by ${this.author}`;
+//   }
+// }
+
+// const deepWork = new Book('deep work', 'cal newport');
+// console.log(deepWork.info);
+// // error
+// // deepWork.checkOut = true;
+// console.log(deepWork.someInfo);
+// console.log(deepWork.checkOut);
+
+///////////////////////
+
+// Classes - Implement Interface
+
+// interface IPerson {
+//   name: string;
+//   age: number;
+//   greet(): void;
+// }
+
+// class Person implements IPerson {
+//   constructor(public name: string, public age: number) {}
+
+//   greet() {
+//     console.log(
+//       `Hello, my name is ${this.name} and I'm ${this.age} years old.`
+//     );
+//   }
+// }
+
+// const hipster = new Person('shakeAndBake', 100);
+// hipster.greet();
