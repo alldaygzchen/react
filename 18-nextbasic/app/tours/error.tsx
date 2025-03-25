@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 function error({ error }: { error: Error }) {
   console.log(error);

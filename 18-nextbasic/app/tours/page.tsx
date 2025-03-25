@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Image from 'next/image';
-const url = 'https://www.course-api.com/react-tours-project';
+import Link from "next/link";
+import Image from "next/image";
+const url = "https://www.course-api.com/react-tours-project";
 
 type Tour = {
   id: string;
@@ -14,7 +14,7 @@ const fetchTours = async () => {
   await new Promise((resolve) => setTimeout(resolve, 3000));
   const response = await fetch(url);
   const data: Tour[] = await response.json();
-  console.log('data', data);
+  console.log("data", data);
   return data;
 };
 
